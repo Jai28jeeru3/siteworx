@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import "../App.css";
 import FOREST from '../imge/forest.jpg';
 import PincodeGenerator from './PincodeGenerator';
 import { ChevronDown } from 'lucide-react';
+=======
+import "../App.css"
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 
 export default function SignIn() {
   const [form, setForm] = useState({
@@ -10,6 +14,7 @@ export default function SignIn() {
     lastname: '',
     email: '',
     password: '',
+<<<<<<< HEAD
     gstin: '',
     address1: '',
     address2: '',
@@ -17,6 +22,10 @@ export default function SignIn() {
     showPassword: false,
   });
   const [showPincodeGenerator, setShowPincodeGenerator] = useState(false);
+=======
+    showPassword: false,
+  });
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +38,7 @@ export default function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     // Handle form submission
   };
 
@@ -195,6 +205,76 @@ export default function SignIn() {
           <button type="submit" style={{ fontSize: '1.25rem', padding: '0.7rem 2.2rem', fontWeight: 700 }}>Sign In</button>
         </form>
       </div>
+=======
+    alert(
+      `Username: ${form.username}\nLastname: ${form.lastname}\nEmail: ${form.email}\nPassword: ${form.password}`
+    );
+  };
+
+  return (
+    <div className="login-form-container">
+      <form className="login-form" onSubmit={handleSubmit} autoComplete="off">
+        <h2>Sign In</h2>
+        <div style={{ width: '100%' }}>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            value={form.username}
+            onChange={handleChange}
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div style={{ width: '100%' }}>
+          <label htmlFor="lastname">Lastname</label>
+          <input
+            id="lastname"
+            name="lastname"
+            type="text"
+            value={form.lastname}
+            onChange={handleChange}
+            placeholder="Enter your lastname"
+            required
+          />
+        </div>
+        <div style={{ width: '100%' }}>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div className="password-wrapper">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type={form.showPassword ? 'text' : 'password'}
+            value={form.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+            required
+          />
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={toggleShowPassword}
+            tabIndex={-1}
+            aria-label="Toggle password visibility"
+          >
+            {form.showPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     </div>
   );
 }

@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 
+=======
+import Sitenav from './navbar';
+import Footer from './footer';
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 const TwoStepSignup = ({ email, isForgotPassword }) => {
     const [step, setStep] = useState(isForgotPassword ? 2 : 1);
     const [formData, setFormData] = useState({
@@ -9,10 +14,49 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
         confirmPassword: '',
         fullName: ''
     });
+<<<<<<< HEAD
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [message, setMessage] = useState("");
 
+=======
+    const [verificationCode, setVerificationCode] = useState(['', '', '', '', '', '']);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [timeLeft, setTimeLeft] = useState(60);
+    const [canResend, setCanResend] = useState(false);
+    const [sentCode, setSentCode] = useState(null);
+    const [resentOtp, setResentOtp] = useState(null);
+    const [verificationSent, setVerificationSent] = useState('');
+    const [message, setMessage] = useState("");
+
+    const inputRefs = useRef([]);
+
+    const sendOtpToEmail = async (targetEmail) => {
+        try {
+            setIsLoading(true);
+            const response = await fetch('/api/send-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: targetEmail })
+            });
+            const data = await response.json();
+            setIsLoading(false);
+            if (response.ok && data.code) {
+                setSentCode(data.code); // For demo, backend returns code. In production, don't expose code to frontend!
+                return true;
+            } else {
+                setErrors({ verification: data.error || 'Failed to send OTP. Try again.' });
+                return false;
+            }
+        } catch (err) {
+            setIsLoading(false);
+            setErrors({ verification: 'Network error. Try again.' });
+            return false;
+        }
+    };
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     // Auto-fill email if provided
     useEffect(() => {
         if (email) {
@@ -20,6 +64,52 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
         }
     }, [email]);
 
+<<<<<<< HEAD
+=======
+    // Send code when email is set (forgot password or after signup form)
+    useEffect(() => {
+        if ((isForgotPassword && step === 2 && email) || (!isForgotPassword && step === 2 && formData.email)) {
+            // Generate a 6-digit code
+            const generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+            console.log(generatedCode, "Generated Code");
+
+            setSentCode(generatedCode);
+            setTimeLeft(60);
+            setCanResend(false);
+            setVerificationCode(['', '', '', '', '', '']);
+            // In real app, send code to email
+            //   alert(`Verification code sent to ${email || formData.email}: ${generatedCode}`);
+            setVerificationSent(generatedCode)
+        }
+    }, [isForgotPassword, step, email, formData.email]);
+
+
+    // check console for verificationCode
+    useEffect(() => {
+        console.log(verificationSent, "inside the state Verification Code");
+        const handleSendOTP = async () => {
+            try {
+                const response = await axios.post("", { verificationSent });
+                setMessage(response.data.message);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        handleSendOTP();
+    }, [verificationSent]);
+
+
+    // Timer for resend code
+    useEffect(() => {
+        if (step === 2 && timeLeft > 0) {
+            const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+            return () => clearTimeout(timer);
+        } else if (timeLeft === 0) {
+            setCanResend(true);
+        }
+    }, [step, timeLeft]);
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     // Handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -37,6 +127,30 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
         }
     };
 
+<<<<<<< HEAD
+=======
+    // Handle verification code input
+    const handleVerificationChange = (index, value) => {
+        if (value.length <= 1 && /^\d*$/.test(value)) {
+            const newCode = [...verificationCode];
+            newCode[index] = value;
+            setVerificationCode(newCode);
+
+            // Auto-focus next input
+            if (value && index < 5) {
+                inputRefs.current[index + 1]?.focus();
+            }
+        }
+    };
+
+    // Handle backspace in verification inputs
+    const handleKeyDown = (index, e) => {
+        if (e.key === 'Backspace' && !verificationCode[index] && index > 0) {
+            inputRefs.current[index - 1]?.focus();
+        }
+    };
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     // Validate step 1 form
     const validateStep1 = () => {
         const newErrors = {};
@@ -75,9 +189,57 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
         setTimeout(() => {
             setIsLoading(false);
             setStep(2);
+<<<<<<< HEAD
         }, 1500);
     };
 
+=======
+            setTimeLeft(60);
+            setCanResend(false);
+        }, 1500);
+    };
+
+    // Handle verification submission
+    const handleVerificationSubmit = async () => {
+        const code = verificationCode.join('');
+        if (code.length !== 6) {
+            setErrors({ verification: 'Please enter the complete 6-digit code' });
+            return;
+        }
+        if (code !== sentCode) {
+            setErrors({ verification: 'Password is incorrect.' });
+            return;
+        }
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+            // Redirect to site frontend (simulate by reloading or navigating to homepage)
+            window.location.href = '/';
+        }, 1000);
+    };
+
+    // Resend verification code
+    const handleResendCode = async () => {
+        setTimeLeft(60);
+        setCanResend(false);
+        setVerificationCode(['', '', '', '', '', '']);
+        await sendOtpToEmail(email || formData.email);
+    };
+
+    // Resend OTP
+    const handleResendOtp = async () => {
+        setIsLoading(true);
+        setTimeLeft(60);
+        setCanResend(false);
+        setVerificationCode(['', '', '', '', '', '']);
+        // Generate a new OTP and show it on the screen (for demo)
+        const generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+        setSentCode(generatedCode);
+        setResentOtp(generatedCode);
+        setIsLoading(false);
+    };
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     const styles = {
         container: {
             minHeight: '100vh',
@@ -168,6 +330,56 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
             opacity: '0.6',
             cursor: 'not-allowed'
         },
+<<<<<<< HEAD
+=======
+        verificationContainer: {
+            display: 'flex',
+            gap: '12px',
+            justifyContent: 'center',
+            marginBottom: '24px'
+        },
+        verificationInput: {
+            width: '50px',
+            height: '50px',
+            textAlign: 'center',
+            fontSize: '20px',
+            fontWeight: '600',
+            border: '2px solid #e5e7eb',
+            borderRadius: '8px',
+            outline: 'none',
+            transition: 'all 0.2s ease'
+        },
+        timer: {
+            textAlign: 'center',
+            color: '#718096',
+            fontSize: '14px',
+            marginBottom: '16px'
+        },
+        resendButton: {
+            background: 'transparent',
+            color: '#667eea',
+            border: 'none',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: 'pointer',
+            textDecoration: 'underline',
+            padding: '0'
+        },
+        backButton: {
+            width: '100%',
+            padding: '12px 0',
+            borderRadius: '18px',
+            border: '1px solid #6366f1',
+            background: 'none',
+            color: '#6366f1',
+            cursor: 'pointer',
+            fontSize: '16px',
+            marginTop: '20px',
+            position: 'static',
+            left: 'unset',
+            top: 'unset',
+        },
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
         loader: {
             width: '20px',
             height: '20px',
@@ -179,6 +391,11 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
     };
 
     return (
+<<<<<<< HEAD
+=======
+        <>
+        <Sitenav/>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
         <div style={styles.container}>
             <div style={styles.card}>
                 {/* Remove create account form, only show verification step */}
@@ -273,6 +490,11 @@ const TwoStepSignup = ({ email, isForgotPassword }) => {
         }
       `}</style>
         </div>
+<<<<<<< HEAD
+=======
+        <Footer/>
+        </>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
     );
 };
 

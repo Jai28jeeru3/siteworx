@@ -1,5 +1,6 @@
 import React from 'react';
 import T5669487 from '../imge/5669487.jpg';
+<<<<<<< HEAD
 import Img1 from '../imge/images1.jpg';
 import Img2 from '../imge/images2.jpg';
 import Img3 from '../imge/images3.jpg';
@@ -41,6 +42,59 @@ const ServicesIcon = () => (
   <span style={{ display: 'inline-block', width: 64, height: 64, borderRadius: '50%', overflow: 'hidden', background: '#e2efff' }}>
     <img src={Img5} alt="services" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
   </span>
+=======
+import images1 from '../imge/images1.jpg';
+import images2 from '../imge/images2,jpg.webp';
+import images3 from '../imge/images3.jpg';
+import images4 from '../imge/images4.jpg';
+import images5 from '../imge/images5.jpg';
+
+
+
+// Custom SVG Icons matching the image
+const SpeedIcon = () => (
+   <img
+      src={T5669487}
+      alt="Speed Icon"
+      className="w-16 h-16 text-5 object-contain feature-icon"
+    />
+);
+
+const SupportIcon = () => (
+  <img src={images1} alt="Support" className="feature-icon w-16 h-16 object-contain" />
+);
+
+const ControlPanelIcon = () => (
+  <img
+      src={images2}
+      alt="Control Panel Icon"
+      className="w-16 h-16 object-contain feature-icon"
+    />
+);
+
+const SecurityIcon = () => (
+  <img
+      src={images3}
+      alt="Security Icon"
+      className="w-16 h-16 object-contain feature-icon"
+    />
+);
+
+const LayersIcon = () => (
+  <img
+      src={images4}
+      alt="Layers Icon"
+      className="w-16 h-16 object-contain feature-icon"
+    />
+);
+
+const ServicesIcon = () => (
+  <img
+      src={images5}
+      alt="Services Icon"
+      className="w-16 h-16 object-contain feature-icon"
+    />
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 );
 
 export default function SiteWorxFeaturesSection() {
@@ -81,7 +135,11 @@ export default function SiteWorxFeaturesSection() {
     <>
       <style jsx>{`
         .features-container {
+<<<<<<< HEAD
           background-color: #e2efff;
+=======
+          background-color: #dde9f9;
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           padding: 40px 20px;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -119,22 +177,36 @@ export default function SiteWorxFeaturesSection() {
           width: 64px;
           height: 64px;
           padding: 12px;
+<<<<<<< HEAD
           background: linear-gradient(135deg, #e8f5f3 0%, #d4f1ed 100%);
+=======
+          background: linear-gradient(135deg,  #dde9f9 100%);
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           border-radius: 50%;
           border: 2px solid #b8e6df;
         }
         
         .feature-title {
+<<<<<<< HEAD
           font-size: 22px;
           font-weight: 600;
           color: #2c3e50;
+=======
+          font-size: 18px;
+          font-weight: 600;
+          color: #000;
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           margin-bottom: 15px;
           line-height: 1.3;
           letter-spacing: -0.02em;
         }
         
         .feature-description {
+<<<<<<< HEAD
           font-size: 16px;
+=======
+          font-size: 18px;
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           color: #6c757d;
           line-height: 1.6;
           margin: 0;
@@ -152,11 +224,19 @@ export default function SiteWorxFeaturesSection() {
           }
           
           .feature-title {
+<<<<<<< HEAD
             font-size: 18px;
           }
           
           .feature-description {
             font-size: 14px;
+=======
+            font-size: 16px;
+          }
+          
+          .feature-description {
+            font-size: 13px;
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           }
         }
         
@@ -167,11 +247,19 @@ export default function SiteWorxFeaturesSection() {
         }
       `}</style>
 
+<<<<<<< HEAD
       <div className="features-container mt-[100px]" style={{ background: '#e2efff' }}>
        <div className='h-[250px] w-full bg-slate-50 mb-10'>
             <p className="text-center text-4xl text-[#]  font-serif ">The SiteWorx Advantage for Web Hosting Services in India</p>
                <p className="m-auto  text-center w-[80%] text-xl text-black text-md font-serif mt-3">SiteWorx offers the best and cheap web hosting solutions with the backend handled by professionals with industry expertise. Our web hosting combines one of the best features in every package.  But why should you choose SiteWorx advantage? Here the all the features that make us stand out:</p>
                <p className='text-center text-[#1A1C26] text-2xl font-serif mt-3'>Build For Speed</p>
+=======
+      <div className="features-container mt-[100px]">
+       <div className='h-[250px] w-full bg-[#e2efff] mb-10'>
+            <p className="text-center text-4xl text-[#115256]  font-serif ">The SiteWorx Advantage for Web Hosting Services in India</p>
+               <p className="m-auto  text-center w-[80%] text-black text-xl text-md font-serif mt-3">SiteWorx offers the best and cheap web hosting solutions with the backend handled by professionals with industry expertise. Our web hosting combines one of the best features in every package.  But why should you choose SiteWorx advantage? Here the all the features that make us stand out:</p>
+               <p className='text-center text-[#1A1C26] text-xl font-serif mt-3'>Build For Speed</p>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
                <p className="text-center text-[#1A1C26] text-4xl font-serif mt-3">Why SiteWorx for web hosting service in India?</p>
        </div>
         <div className="features-grid">

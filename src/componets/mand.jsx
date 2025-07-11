@@ -5,7 +5,10 @@ import img3 from  "../imge/tws-removebg-preview.png"
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+<<<<<<< HEAD
 import Img4 from "../imge/img4.jpg";
+=======
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 
 const Sliderui = () => {
 

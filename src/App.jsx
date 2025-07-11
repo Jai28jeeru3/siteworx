@@ -23,6 +23,17 @@ import Navtop from "./componets/navtop";
 import Footer from "./componets/footer";
 import Aboutsite from "./componets/aboutsiteworex";
 import Login from "./componets/login";
+<<<<<<< HEAD
+=======
+import NewNavbar from "./componets/navtop";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Sign from "./componets/login";
+import TwoStepSignup from "./componets/twostep";
+import SignIn from "./componets/signin";
+import Loginto from "./componets/loginform";
+import Shared from "./componets/shared";
+import Reseller from "./componets/reseller";
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 
 
 
@@ -42,8 +53,26 @@ function App() {
    {/* <ContactForm/> */}
    {/* <SiteWorxFeaturesSection/> */}
    {/* <Barnav/> */}
+<<<<<<< HEAD
    <Siteworex/>
    {/* <Login/> */}
+=======
+   {/* <Siteworex/> */}
+   {/* <Login/> */}
+   {/* <NewNavbar/> */}
+   
+    <Routes>
+      <Route path="/login" element={<Loginto/>}/>
+    <Route path="/sign" element={<Sign/>}/>
+    <Route path="/veryfy" element={<TwoStepSignup/>}/>
+    <Route path="/" element={<Siteworex/>}/>
+    <Route path="/shared-hosting" element={<Shared />} />
+        <Route path="/reseller-hosting" element={<Reseller />} />
+   </Routes>
+ 
+     
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
    </>
   );
 }

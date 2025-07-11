@@ -1,22 +1,38 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+<<<<<<< HEAD
 import siteworex from "../imge/siteworex.png"
 
 const Footer = () => {
   return (
     <footer className="bg-[#0a2259] text-white py-12 px-6">
+=======
+import siteworex from "../imge/s1.jpg"
+
+const Footer = () => {
+  return (
+    <footer className="text-white bg-[#0c2570] py-12 px-6">
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
+<<<<<<< HEAD
               <div className="bg-white rounded-lg p-2 mr-3">
+=======
+              <div className=" rounded-lg p-2 mr-3">
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
                   <img src={siteworex} className="h-[40px] w-[150px] rounded-lg" alt="" />
               </div>
               {/* <span className="text-xl font-semibold">SiteWorx</span> */}
             </div>
             
+<<<<<<< HEAD
             <p className="text-white text-lg md:text-xl mb-6 leading-relaxed">
+=======
+            <p className="text-white mb-6 leading-relaxed">
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
               Siteworx offers the complete solution for online businesses including Domain Registration, Web Designing, Web Development, App Development, Software Development, MLM Software Development, Web Hosting, VPS Server, Dedicated Server, Email Marketing Server, Business Email, cPanel Licenses Etc. Working 24/7 at your service.
             </p>
             
@@ -40,6 +56,7 @@ const Footer = () => {
           </div>
 
           {/* Services Section */}
+<<<<<<< HEAD
           <div className="ml-16">
             <h3 className="text-white text-xl font-semibold mb-6 uppercase tracking-wide">
               Services
@@ -54,10 +71,27 @@ const Footer = () => {
               <li><a href="#" className="text-white hover:text-white transition-colors">Java Hosting</a></li>
               <li><a href="#" className="text-white hover:text-white transition-colors">CMS Hosting</a></li>
               <li><a href="#" className="text-white hover:text-white transition-colors">Ecommerce Hosting</a></li>
+=======
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-8 uppercase tracking-wide">
+              Services
+            </h3>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Dedicated Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Email Marketing Server</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Cloud Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">VPS</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Reseller Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Shared Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Java Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">CMS Hosting</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Ecommerce Hosting</a></li>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
             </ul>
           </div>
 
           {/* Products Section */}
+<<<<<<< HEAD
           <div className="ml-16">
             <h3 className="text-white text-xl font-semibold mb-6 uppercase tracking-wide">
               Products
@@ -74,11 +108,30 @@ const Footer = () => {
               <li><a href="#" className="text-white hover:text-white transition-colors">Terms & Conditions</a></li>
               <li><a href="#" className="text-white hover:text-white transition-colors">Privacy policy</a></li>
               <li><a href="#" className="text-white hover:text-white transition-colors">Refund policy</a></li>
+=======
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-6 uppercase tracking-wide">
+              Products
+            </h3>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-teal-100 hover:text-white transition-colors">Google Workspace</a></li>
+              <li><a href="#" className="text-teal-100 hover:text-white transition-colors">Licenses</a></li>
+            </ul>
+
+            <h3 className="text-white text-lg font-semibold mb-6 mt-8 uppercase tracking-wide">
+              Legal
+            </h3>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Terms & Conditions</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Privacy policy</a></li>
+              <li><a href="#" className="text-white hover:text-gray-200 transition-colors">Refund policy</a></li>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
             </ul>
           </div>
 
           {/* Contact Section */}
           <div>
+<<<<<<< HEAD
             <h3 className="text-white text-xl font-semibold mb-6 uppercase tracking-wide">
               Contact - Us
             </h3>
@@ -105,16 +158,35 @@ const Footer = () => {
                 <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24" className="text-red-600"><path d="M12 0C5.373 0 0 5.373 0 12c0 4.991 3.657 9.128 8.438 10.093-.117-.858-.223-2.178.047-3.118.242-.828 1.557-5.281 1.557-5.281s-.396-.792-.396-1.963c0-1.838 1.067-3.211 2.396-3.211 1.13 0 1.676.849 1.676 1.867 0 1.137-.724 2.834-1.096 4.414-.312 1.32.663 2.396 1.963 2.396 2.356 0 3.941-3.021 3.941-6.594 0-2.729-1.844-4.779-5.188-4.779-3.771 0-6.006 2.828-6.006 5.969 0 1.09.418 2.258.941 2.892.104.125.119.234.087.36-.095.39-.308 1.237-.35 1.409-.055.23-.18.28-.418.17-1.563-.726-2.537-3.004-2.537-4.84 0-3.941 3.334-8.646 9.926-8.646 5.297 0 8.773 3.824 8.773 7.938 0 5.438-3.021 9.484-7.219 9.484-1.447 0-2.805-.782-3.27-1.664l-.889 3.389c-.266 1.01-.787 2.273-1.176 3.045C9.293 23.941 10.633 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
               </a>
             </div>
+=======
+            <h3 className="text-white text-lg font-semibold mb-6 uppercase tracking-wide">
+              Contact - Us
+            </h3>
+            <div className="flex items-center mb-4">
+              <Mail className="w-5 h-5 mr-3 text-white" />
+              <a href="mailto:info@siteworx.in" className="text-white hover:text-gray-200 transition-colors">
+                info@siteworx.in
+              </a>
+            </div>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="border-t border-teal-600 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
+<<<<<<< HEAD
             <div className="text-white text-base md:text-lg mb-4 md:mb-0">
               © Copyright 2024 Site Worx
             </div>
           </div>
+=======
+            <div className="text-teal-200 text-sm mb-4 md:mb-0">
+              © Copyright 2024 Site Worx
+            </div>
+           
+        </div>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
       </div>
       </div>
     </footer>

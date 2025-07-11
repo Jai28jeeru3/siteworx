@@ -1,8 +1,21 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
 
 
 
 function Barnav() {
+<<<<<<< HEAD
+=======
+  const [showHostingSubmenu, setShowHostingSubmenu] = useState(false);
+
+  const handleHostingClick = () => {
+    setShowHostingSubmenu((prev) => !prev);
+  };
+
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
   return (
     <div className="app-background">
       <div className="top-bar">
@@ -27,6 +40,7 @@ function Barnav() {
       {/* Sections Bar */}
       <div className="sections-bar">
         <span className="section-link">DOMAINS</span>
+<<<<<<< HEAD
         <span className="section-link">
           HOSTING
         
@@ -35,6 +49,29 @@ function Barnav() {
           SERVER
           
         </span>
+=======
+        <span className="section-link" style={{ position: 'relative' }} onClick={handleHostingClick}>
+          HOSTING
+          {showHostingSubmenu && (
+            <div style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              background: '#fff',
+              color: '#333',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              borderRadius: '4px',
+              zIndex: 10,
+              minWidth: '160px',
+              padding: '0.5rem 0',
+            }}>
+              <div className="section-link" style={{ padding: '0.5rem 1rem', cursor: 'pointer' }}>Reseller Hosting</div>
+              <div className="section-link" style={{ padding: '0.5rem 1rem', cursor: 'pointer' }}>Research Hosting</div>
+            </div>
+          )}
+        </span>
+        <span className="section-link">SERVER</span>
+>>>>>>> 537e01a6b1123df37c077beb433592fa614b211f
         <span className="section-link">EMAIL MARKETING</span>
         <span className="section-link">GOOGLE WORKSPACE</span>
         <span className="section-link">LICENSE</span>
